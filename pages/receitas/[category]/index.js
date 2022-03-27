@@ -1,8 +1,8 @@
 import slugify from "slugify";
 import { RecipeService } from "../../../services/RecipeService";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import RecipeCategory from "../../components/RecipeCategory/RecipeCategory";
+import Footer from "../../../components/Footer/Footer";
+import Header from "../../../components/Header/Header";
+import RecipeCategory from "../../../components/RecipeCategory/RecipeCategory";
 
 export async function getStaticPaths(){
     let categories = {};

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
-import RecipeCategory from './components/RecipeCategory/RecipeCategory'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import RecipeCategory from '../components/RecipeCategory/RecipeCategory';
 import {RecipeService} from '../services/RecipeService';
 import { useState, useEffect, useMemo } from 'react';
 

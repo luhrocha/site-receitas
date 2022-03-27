@@ -9,7 +9,8 @@ function slugifyCategory(category){
 
 function createUrl(recipe){
     const category = slugifyCategory(recipe.category);
-    const recipeId = slugify(`${recipe.id}-${recipe.name}`).toLocaleLowerCase();
+    //const recipeId = slugify(`${recipe.id}-${recipe.name}`).toLocaleLowerCase();
+    const recipeId = `${recipe.id}-${slugify(recipe.name).toLocaleLowerCase()}`;
 
     return `/receitas/${category}/${recipeId}`;
 }
@@ -29,7 +30,7 @@ export default function RecipeCategory({category, recipeList, maxElements =3}){
             </Link>
             <div className='recipes'>
             {recipes.map(recipe => (
-                <RecipeCard keys={recipe.id} picture={recipe.img} name={recipe.name} category={recipe.category} link={createUrl(recipe)}/>
+                <RecipeCard key={recipe.id} picture={recipe.img} name={recipe.name} category={recipe.category} link={createUrl(recipe)}/>
             ))}
             </div>
         </div>

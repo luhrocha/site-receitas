@@ -1,5 +1,6 @@
 import slugify from "slugify";
 import { RecipeService } from "../../../services/RecipeService";
+import Recipe from "../../../components/Recipe/Recipe";
 
 export async function getStaticPaths(){
    const recipes = await RecipeService.listAll();
@@ -30,7 +31,25 @@ export async function getStaticProps({params}){
 export default function RecipeContainer({recipe}){
     return(
         <div>
-            {recipe.name}
-        </div>
+            <Recipe
+                name={recipe.name}
+                picture={recipe.img}
+                time={recipe.time}
+                servings={recipe.servings}
+            >
+                <h2>Ingredientes</h2>               
+                    <ul>
+                         {recipe.ingredients.map((ingredient,index) => (
+                            <li key={index}>{ingredient}</li>))
+                            }                    
+                    </ul>
+               
+                <h2>Modo de Preparo</h2>
+                    <ol>
+                         {recipe.directions.map((direction,index) => (
+                            <li key={index}>{direction}</li>))}                    
+                    </ol>
+            </Recipe>
+       </div>
     )
 }
